@@ -1,6 +1,6 @@
 # 13 · Doladenie malého modelu na čítanie slovenských hlásení: LoRA vs DPO
 
-🇬🇧 [English version](README.md)
+🇬🇧 [English version](README.md) · 📘 [Tutoriál krok za krokom](TUTORIAL.sk.md)
 
 ## TL;DR
 - Model s 1,7B parametrov mení slovenské poistné hlásenia na JSON. Doladený cez LoRA dosahuje **micro F1 0,968** na 150 odložených hláseniach, oproti **0,812** bez príkladov (zero-shot) a **0,885** s promptom s 3 príkladmi.

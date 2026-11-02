@@ -1,6 +1,6 @@
 # 13 · Fine-tuning a small model to read Slovak claims: LoRA vs DPO
 
-🇸🇰 [Slovenská verzia](README.sk.md)
+🇸🇰 [Slovenská verzia](README.sk.md) · 📘 [Step-by-step tutorial](TUTORIAL.md)
 
 ## TL;DR
 - A 1.7B model turns Slovak insurance reports into JSON. Fine-tuned with LoRA it reaches **micro F1 0.968** on 150 held-out reports, against **0.812** zero-shot and **0.885** with a 3-example prompt.
