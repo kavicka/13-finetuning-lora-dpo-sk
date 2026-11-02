@@ -16,7 +16,7 @@ Projekt porovná štyri možnosti na rovnakej úlohe: pokyn bez príkladu, pokyn
 
 Na 150 odložených hláseniach stúplo micro F1 z 0,812 bez príkladov na 0,968 po LoRA. DPO už neprinieslo merateľné zlepšenie. Grafy ukazujú, ako sa výsledok mení s počtom tréningových príkladov a pri ktorých poliach model stále chybuje. Výsledok opisuje tento syntetický dataset; pred reálnym použitím by bolo treba overenie na skutočných hláseniach.
 
-## Problem
+## Problém
 Dokáže model taký malý, že beží na notebooku, spoľahlivo vytiahnuť štruktúrované údaje z neupraveného slovenského textu, a je na to doladenie správny nástroj? Tento krok odpovedá na otázku roadmapy tabuľkou: zero-shot vs few-shot vs LoRA vs LoRA + DPO, rovnaká testovacia sada, rovnaké metriky.
 
 **Prompt, RAG alebo doladenie?** Každé rieši iný problém, preto záleží na poradí:
@@ -31,14 +31,14 @@ Táto úloha je tretí prípad. Nič tu nepotrebuje vonkajšie znalosti: každá
 
 Bez kapitoly v Racing Labe: doladenie je o jazykovom správaní a auto nemá čo čítať. Vizuálny príklad je panel pred/po nižšie.
 
-## Setup
+## Nastavenie
 - **Schéma (pevná vopred):** `claim_type` (7 hodnôt), `event_date`, `city`, `policy_number`, `damaged_items`, `estimated_amount_eur`, `injured_persons`, `police_reported`.
 - **Študent:** Qwen3-1.7B. `mlx-community/Qwen3-1.7B-bf16` na tréning, `qwen3:1.7b` v Ollame (ten istý model v Q4_K_M), bez premýšľania, teplota 0.
 - **Hardvér:** Mac mini M4 Pro, 48 GB, MLX na GPU. Všetko lokálne, 0 €.
 - **Dáta:** 800 train, 100 val, 150 test syntetických hlásení so správnou odpoveďou danou konštrukciou (nižšie).
 - **Metriky:** platný JSON znamená, že sa dá načítať a každé pole má správny typ. Micro precision, recall a F1 cez polia, zoznamy sa porovnávajú ako množiny normalizovaných položiek, sumy s toleranciou 1 %, dátumy presne, bootstrap 95 % interval cez dokumenty. Medián latencie na hlásenie.
 
-## How it works
+## Ako to funguje
 
 **Správna odpoveď konštrukciou (`schema.py`, `generate_data.py`).** Najprv vznikne záznam: Python ho vyžrebuje s pevným seedom a až potom lokálny model napíše hlásenie presne s týmito faktami, v jednom zo šiestich štýlov, niektoré polia chýbajú. Označenie nemôže byť zlé, pokiaľ pisateľ neposlúchne.
 
@@ -65,7 +65,7 @@ Validačná loss klesne z 0,930 na 0,020 za prvých 50 krokov a skončí na 0,01
 
 **Do Ollamy (`fuse.sh`).** Adaptér sa vtaví do váh, čo je menej jednoduché, než to znie. Ollama odmietne Qwen3 safetensors (`unsupported architecture "Qwen3ForCausalLM"`) a `mlx_lm` preň nemá export do GGUF, takže GGUF vyrobí konvertor z llama.cpp a Ollama ho kvantizuje na Q4_K_M. Výsledok beží ako `claims-sk`, 1,1 GB.
 
-## Results
+## Výsledky
 
 | Systém | Runtime | Precision | Recall | **Micro F1** (95 % interval) | Platný JSON | Medián latencie |
 |---|---|---|---|---|---|---|
@@ -98,7 +98,7 @@ Zdvojnásobenie zo 400 na 800 tu neprinieslo nič. Riadok 800 mal dvakrát viac 
 
 **Zabudol zvyšok?** Osem všeobecných slovenských otázok, bez systémového promptu, základný vs doladený model. Ani jeden neodpovedal JSON-om, a práve toto zlyhanie kontrola hľadá. Skóre podľa kľúčového slova dáva 6 z 8 vs 7 z 8, ale je hrubé: odpoveď o priestupnom roku počíta ako správnu pri oboch modeloch, hoci obe tvrdia 365. Základný model je v slovenských faktoch slabý už sám (hlavné mesto Slovenska mal zle, doladený dobre). V týchto 8 otázkach teda nie je znak zabúdania a 8 otázok viac ukázať nevie.
 
-## Error analysis
+## Analýza chýb
 Pri doladenom modeli v Ollame má 110 zo 150 hlásení všetky polia správne. Chyby podľa počtu zasiahnutých hlásení: `damaged_items` 19, `city` 16, `claim_type` 6, `event_date` 4. Číslo poistky, suma, zranenia a polícia sú bez chyby.
 
 - **Mesto, nové mestá.** 97 z 99 správne na mestách z tréningu, 22 z 36 na nových. 13 zo 16 chýb nechá správne slovo v zlom tvare alebo s preklepom: „Brezne“ namiesto Brezno, „Galante“ namiesto Galanta, „Levica“ namiesto Levice. Vrátiť slovenský lokál na nominatív znamená poznať mesto. Zero-shot pomýlil mesto v 74 hláseniach, takže zlepšenie je aj tak veľké, ale mestá iba z testu ukazujú, koľko z neho závisí od toho, či model názov videl.
@@ -109,7 +109,7 @@ Pri doladenom modeli v Ollame má 110 zo 150 hlásení všetky polia správne. C
 
 Rozdiely medzi tromi doladenými riadkami sú v rámci šumu. Rozdiely medzi nimi a baseline systémami nie.
 
-## What I learned
+## Čo som sa naučil
 - Doladenie je najlepšie na správanie. Skopírovať hodnotu z textu vedel model už skoro bez chyby; zisk je vo formáte a v konvenciách.
 - Skôr než siahneš po ďalších dátach, zmeraj, ako málo stačí. 25 príkladov tu porazilo môj najlepší prompt a to je práca na jeden večer.
 - DPO potrebuje skutočné chyby. Model, ktorý má takmer všetko dobre, sa nemá čo naučiť zo syntetických pokazení, ktoré by sám nikdy neurobil, takže preferenčné ladenie patrí skôr k subjektívnym vlastnostiam, ako je tón, než k úlohe s jednou správnou odpoveďou.
@@ -117,7 +117,7 @@ Rozdiely medzi tromi doladenými riadkami sú v rámci šumu. Rozdiely medzi nim
 - Skóre môže vyzerať lepšie než vec, ktorú meria: kľúčová kontrola zabúdania započítala zlú odpoveď ako správnu. Pozri sa na výstupy.
 - Skutočná práca s nasadením prišla na konci: aby sa jeden model dostal do Ollamy, museli spolupracovať tri nástroje.
 
-## Run it
+## Spustenie
 ```bash
 uv sync
 nohup caffeinate -i sh pipeline.sh > logs/pipeline.log 2>&1 &   # dáta, baseline, LoRA, DPO; po zastavení pokračuje
@@ -132,7 +132,7 @@ uv run python analysis.py && uv run python plot.py
 
 Treba Ollamu s `qwen3:1.7b`, `gemma3:12b` a `qwen3:30b-a3b-instruct-2507-q4_K_M`. Dáta, adaptéry a modely nie sú v repozitári. `results_best.json` zaznamenáva výber na val a píše sa ručne z dvoch výsledkov `val_*`.
 
-## Limitations
+## Obmedzenia
 - **Dáta sú syntetické.** Písali ich LLM, miestami so slabou slovenskou gramatikou („Poistná číslo“) a so strojenými formuláciami. Skutočné hlásenia majú preklepy, prílohy a protirečenia. Na skutočnom texte čakaj horšie čísla; toto meria metódu, nie produkt.
 - **Záznamy sú nezávislé žreby**, takže sa stane aj svetlomet za 29 800 €. Model nikdy nemusí posudzovať, či je niečo vierohodné.
 - **Hlásenia odmietnuté kontrolou sú preč**, takže testovacia sada je o niečo ľahšia než to, čo pisatelia vytvorili, napríklad sumy vypísané slovami.
