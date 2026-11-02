@@ -1,0 +1,68 @@
+{
+ "name": "zero_shot",
+ "model": "qwen3:1.7b",
+ "runtime": "ollama",
+ "shots": 0,
+ "few_shot_indices": [],
+ "options": {
+  "temperature": 0,
+  "seed": 0,
+  "num_predict": 300
+ },
+ "think": false,
+ "documents": 150,
+ "valid_json_pct": 24.0,
+ "parses_pct": 100.0,
+ "micro": {
+  "precision": 0.79585326953748,
+  "recall": 0.829592684954281,
+  "f1": 0.8123728123728123
+ },
+ "micro_f1_ci95": [
+  0.7899224511141382,
+  0.8345558272208637
+ ],
+ "per_field": {
+  "claim_type": {
+   "precision": 0.9066666666666666,
+   "recall": 0.9066666666666666,
+   "f1": 0.9066666666666666
+  },
+  "event_date": {
+   "precision": 0.7586206896551724,
+   "recall": 0.9734513274336283,
+   "f1": 0.8527131782945736
+  },
+  "city": {
+   "precision": 0.475177304964539,
+   "recall": 0.4962962962962963,
+   "f1": 0.4855072463768116
+  },
+  "policy_number": {
+   "precision": 0.984375,
+   "recall": 1.0,
+   "f1": 0.9921259842519685
+  },
+  "damaged_items": {
+   "precision": 0.7653429602888087,
+   "recall": 0.7881040892193308,
+   "f1": 0.7765567765567765
+  },
+  "estimated_amount_eur": {
+   "precision": 0.9734513274336283,
+   "recall": 1.0,
+   "f1": 0.9865470852017937
+  },
+  "injured_persons": {
+   "precision": 0.9866666666666667,
+   "recall": 0.9866666666666667,
+   "f1": 0.9866666666666668
+  },
+  "police_reported": {
+   "precision": 0.5933333333333334,
+   "recall": 0.5933333333333334,
+   "f1": 0.5933333333333334
+  }
+ },
+ "median_latency_s": 1.0179360624970286
+}

@@ -1,11 +1,14 @@
 [project]
-name = "nn-short-name"
+name = "13-finetuning-lora-dpo-sk"
 version = "0.1.0"
-description = "One-line description of the step"
+description = "Fine-tuning a small model to extract JSON from Slovak claims: LoRA vs DPO"
 requires-python = ">=3.12"
 dependencies = [
     "matplotlib>=3.11.2",
+    "mlx-lm>=0.32.2",
+    "mlx-tune>=0.6.0",
     "numpy>=2.5.4",
+    "pyyaml>=6.0.3",
 ]
 
 [dependency-groups]
@@ -15,3 +18,7 @@ dev = [
 
 [tool.ruff]
 line-length = 120
+
+[tool.ruff.lint]
+# short scripts, and the process ends right after: a with-block per json.dump would only add noise
+ignore = ["SIM115"]

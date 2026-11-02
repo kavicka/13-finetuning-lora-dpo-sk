@@ -1,0 +1,52 @@
+{
+ "train": {
+  "generated": 1040,
+  "failed_check": 224,
+  "kept": 816,
+  "problem_kinds": {
+   "date": 149,
+   "policy_number": 18,
+   "date_no_year": 29,
+   "date_invented": 13,
+   "amount": 19,
+   "item": 8,
+   "city": 3,
+   "injured": 1,
+   "police": 1
+  },
+  "writer": "qwen3:30b-a3b-instruct-2507-q4_K_M",
+  "seed": 1000
+ },
+ "val": {
+  "generated": 140,
+  "failed_check": 34,
+  "kept": 106,
+  "problem_kinds": {
+   "date": 24,
+   "amount": 3,
+   "date_no_year": 5,
+   "policy_number": 2,
+   "item": 1
+  },
+  "writer": "qwen3:30b-a3b-instruct-2507-q4_K_M",
+  "seed": 2000
+ },
+ "test": {
+  "generated": 260,
+  "failed_check": 86,
+  "kept": 174,
+  "problem_kinds": {
+   "date": 51,
+   "amount": 25,
+   "date_no_year": 11,
+   "item": 1,
+   "policy_number": 12,
+   "date_invented": 1,
+   "injured": 1,
+   "city": 1
+  },
+  "writer": "gemma3:12b",
+  "seed": 3000
+ },
+ "temperature": 0.8
+}

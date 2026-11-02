@@ -1,0 +1,189 @@
+{
+ "documents": 150,
+ "documents_all_fields_right": 110,
+ "documents_with_error_by_field": {
+  "city": 16,
+  "claim_type": 6,
+  "damaged_items": 19,
+  "event_date": 4
+ },
+ "city": {
+  "seen_ok": 97,
+  "seen_bad": 2,
+  "new_ok": 22,
+  "new_bad": 14,
+  "inflected_answer": 13,
+  "invented_for_null": 0
+ },
+ "zero_shot_city_errors": 74,
+ "claim_type_confusions": [
+  [
+   "iné → požiar",
+   3
+  ],
+  [
+   "iné → autonehoda",
+   1
+  ],
+  [
+   "voda → iné",
+   1
+  ],
+  [
+   "iné → krupobitie",
+   1
+  ]
+ ],
+ "examples": {
+  "claim_type": [
+   {
+    "gold": "iné",
+    "pred": "požiar"
+   },
+   {
+    "gold": "iné",
+    "pred": "autonehoda"
+   },
+   {
+    "gold": "voda",
+    "pred": "iné"
+   },
+   {
+    "gold": "iné",
+    "pred": "požiar"
+   },
+   {
+    "gold": "iné",
+    "pred": "požiar"
+   },
+   {
+    "gold": "iné",
+    "pred": "krupobitie"
+   }
+  ],
+  "event_date": [
+   {
+    "gold": "2025-09-09",
+    "pred": "2025-09-10"
+   },
+   {
+    "gold": "2026-11-09",
+    "pred": "2026-11-10"
+   },
+   {
+    "gold": "2023-10-09",
+    "pred": "2023-10-10"
+   },
+   {
+    "gold": "2025-02-09",
+    "pred": "2025-02-17"
+   }
+  ],
+  "city": [
+   {
+    "gold": "Snina",
+    "pred": "Sněd"
+   },
+   {
+    "gold": "Galanta",
+    "pred": "Galante"
+   },
+   {
+    "gold": "Kežmarok",
+    "pred": "Kežmark"
+   },
+   {
+    "gold": "Levice",
+    "pred": "Levica"
+   },
+   {
+    "gold": "Brezno",
+    "pred": "Brezne"
+   },
+   {
+    "gold": "Brezno",
+    "pred": "Brezne"
+   }
+  ],
+  "policy_number": [],
+  "damaged_items": [
+   {
+    "gold": [
+     "antuka",
+     "bazén"
+    ],
+    "pred": [
+     "záhradná antuka",
+     "bazén"
+    ]
+   },
+   {
+    "gold": [
+     "markíza",
+     "strecha",
+     "odkvapy"
+    ],
+    "pred": [
+     "markíza"
+    ]
+   },
+   {
+    "gold": [
+     "nárazník",
+     "blatník",
+     "čelné sklo"
+    ],
+    "pred": [
+     "nárazník",
+     "ľavý predný blatník",
+     "čelné sklo"
+    ]
+   },
+   {
+    "gold": [
+     "náradie",
+     "kolobežka"
+    ],
+    "pred": [
+     "náradie",
+     "detska kolobežka"
+    ]
+   },
+   {
+    "gold": [
+     "náradie",
+     "kamera",
+     "kolobežka"
+    ],
+    "pred": [
+     "náradie",
+     "kamera",
+     "detská kolobežka"
+    ]
+   },
+   {
+    "gold": [
+     "kuchynská linka",
+     "kotol"
+    ],
+    "pred": [
+     "kotol",
+     "kuchynská linka",
+     "potrubie"
+    ]
+   }
+  ],
+  "estimated_amount_eur": [],
+  "injured_persons": [],
+  "police_reported": []
+ },
+ "answers_on_one_line": {
+  "fine_tuned": 150,
+  "zero_shot": 12
+ },
+ "answer_chars_mean": {
+  "fine_tuned": 222.11333333333334,
+  "zero_shot": 244.66
+ },
+ "report_chars_mean": 467.42
+}

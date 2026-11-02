@@ -1,0 +1,20 @@
+{
+ "rule": "higher val micro F1 if the 95 % intervals do not overlap, otherwise the simpler model",
+ "val": {
+  "val_lora": {
+   "micro_f1": 0.9816625916870416,
+   "ci95": [
+    0.9732677167682178,
+    0.9892116250502424
+   ]
+  },
+  "val_lora_dpo": {
+   "micro_f1": 0.9841075794621027,
+   "ci95": [
+    0.9757296621417293,
+    0.9908592321755026
+   ]
+  }
+ },
+ "best": "lora"
+}

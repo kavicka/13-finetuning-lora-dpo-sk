@@ -1,0 +1,107 @@
+{
+ "questions": 8,
+ "base_correct": 6,
+ "tuned_correct": 7,
+ "base_as_json": 0,
+ "tuned_as_json": 0,
+ "base": [
+  {
+   "question": "Aké je hlavné mesto Slovenska?",
+   "answer": "Hlavné mesto Slovenska je **Pržské**. To je mesto v regióne Prešovský, v strednej časti Slovenska. Pržské je jednou z najväčších mest, v ktorých sa nachádza významná kultúra, turistika a štátna správa.",
+   "correct": false,
+   "as_json": false
+  },
+  {
+   "question": "Koľko je 7 krát 8?",
+   "answer": "Chceme zistiť, koľko je **7 krát 8**.\n\nToto je základná matematická operácia, ktorá sa zvyčajne vyrieši najjednoduchším spôsobom:\n\n$$\n7 \\times 8 = 56\n$$\n\nTakže odpoveď je:\n\n$$\n\\boxed{56}\n$$",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Aká je chemická značka zlata?",
+   "answer": "Chemická značka zlata je **Au**.\n\nToto je značka, ktorá sa používa v chemii na označenie **zlata (gold)**. Zlato je **náboženský metal** a jeho chemická značka je **Au**.\n\nAkýkoľvek iný metal má inú chemickú značku, napr. **Ag** pre **stály (silver)**, **Cu** pre **cín** a **Fe** pre **železo**.\n\nAk",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Kto napísal Hamleta?",
+   "answer": "Hamlet, jedna z najznámernejších dramatických skript, bol napsaný **Witold Wackiewicz**. Skript sa však v skrývajúcej forme vytvoril **William Shakespeare** v rokoch 1600–1601. \n\nŠakespeare sa však nezabral výplňovým vývojom skriptu, ale jeho vývoj však vznikl v závěrečných rokoch jeho života, kdy s",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Na ktorom kontinente leží Egypt?",
+   "answer": "Egypt leží na **kontinente Afrika**.\n\nKontinent Afrika má významné historické, kulturné a geografické významo pre Egypt. Egyptská kultúra a civilizácia sa vyskytujú v rámci Afriky, najmä v oblastiach ako je **Sahara**, **Nízva**, a **Sahel**.\n\nAk máš iné otázky, môžem pomôcť!",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Prelož do angličtiny slovo pes.",
+   "answer": "Word \"pes\" in English is \"dog\".",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Aká je najvyššia hora Slovenska?",
+   "answer": "Najvyššia hora Slovenska je **Kaspárská hora**. Je to výška **1.940 metrov n.m.** (nad morom).\n\nTáto hora sa nachádza v **Kaspárskom krají**, v oblasti **Kaspárského krají**. Je to jedna z najvyšších hor v Slovensku a jedna z najvyšších hor v Českej republike.\n\nAk máš ešte ďalšie otázky, môžem ti po",
+   "correct": false,
+   "as_json": false
+  },
+  {
+   "question": "Koľko dní má priestupný rok?",
+   "answer": "Priestupný rok má **365 dní**.\n\nTento rok nie je štvorčlený (nie je rok, ktorý má 366 dní). Priestupný rok je teda **365 dní**.\n\nAk máš v základe **štvorčlený rok** (napr. 2020), potom má 366 dní, pretože je to rok s **dňom v sobotu** (v základnom štvorčlenom roku 2020 sa dňa 29. februára vyskytl dň",
+   "correct": true,
+   "as_json": false
+  }
+ ],
+ "tuned": [
+  {
+   "question": "Aké je hlavné mesto Slovenska?",
+   "answer": "Hlavné mesto Slovenska je **Bratislava**.",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Koľko je 7 krát 8?",
+   "answer": "7 krát 8 je rovné 56. \n\nTakže odpoveď: **56**.",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Aká je chemická značka zlata?",
+   "answer": "Zlata je chemicky známa ako **gold**. \n\nZlata má chemickú značku **Au** (anglická forma), a jeho molekulárna forma je **Au**. \n\nZlato je **Au** a je jednou z najčastejších chemických značiek, ktorá sa používa v chemii a v praxi.",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Kto napísal Hamleta?",
+   "answer": "Hamlet, jedným z najznámerších dramových autorov, bol napísaný **William Shakespeare**. \n\nŠakespeare bol anglický dramatológ, ktorý žil v 16. storočí a je známy svojou skladbou, ktorá sa odhráva v rôznych formách, vrátane hŕmov, skladieb a dramov. Hamlet je jedným z jeho najznámerších dramov, ktorý ",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Na ktorom kontinente leží Egypt?",
+   "answer": "Egypt is located in the continent of **Africa**.\n\nThe country is one of the most ancient civilizations in the world, with a history dating back over 4,000 years. It is known for its pyramids, pharaohs, and rich cultural heritage.\n\nLet me know if you'd like more details about Egypt!",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Prelož do angličtiny slovo pes.",
+   "answer": "\"pes\" je slovo v slovenščini, ki ima pomen \"kot\" ali \"kot v kuhinji\". V angliščini je to slovo \"dog\" ali \"dog\". \n\nČe želiš, lahko poskusim preložite drugo slovo \"pes\" v angliščini. Kaj je to, kar ti zdi najboljšim?",
+   "correct": true,
+   "as_json": false
+  },
+  {
+   "question": "Aká je najvyššia hora Slovenska?",
+   "answer": "Najvyššia hora Slovenska je **Košice**, ktorá je v oblasti Košice a je vysoká 1548 metrov n.m. (najvyššia hora Slovenska je Košice). \n\nAkýkoľvek iný hory Slovenska sú výška nižšia. Napríklad:\n\n- **Košice** – 1548 m  \n- **Košice** – 1548 m  \n- **Košice** – 1548 m  \n\nTakže najvyššia hora Slovenska je ",
+   "correct": false,
+   "as_json": false
+  },
+  {
+   "question": "Koľko dní má priestupný rok?",
+   "answer": "Priestupný rok má **365 dní**. \n\nTento rok nie je **dňažným rokom**, teda nie má **366 dní**. \n\nAk máš v základnom znázornení rok, ktorý nie je **dňažným rokom**, potom má **365 dní**. \n\nAk máš v základnom znázornení rok, ktorý je **dňažným rokom**, potom má **366 dní**.\n\nTakže, ak sa ptáš: **\"Koľko",
+   "correct": true,
+   "as_json": false
+  }
+ ]
+}

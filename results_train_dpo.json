@@ -1,0 +1,39 @@
+{
+ "tool": "mlx-tune DPOTrainer",
+ "hyperparameters": {
+  "beta": 0.1,
+  "learning_rate": 1e-05,
+  "max_steps": 150,
+  "batch_size": 2,
+  "max_seq_length": 1024,
+  "docs_for_mistakes": 400,
+  "seed": 0
+ },
+ "trainable_weights": 4980736,
+ "pairs": 400,
+ "rejected_is_own_mistake": 11,
+ "rejected_is_corruption": 389,
+ "effect": {
+  "mean_abs_weight_change": 0.0005055621165541067,
+  "mean_abs_sft_weight": 0.007621537154981135,
+  "test_outputs_changed": 10,
+  "test_outputs": 150
+ },
+ "logged_loss_every_10_steps": [
+  0.9872,
+  1.9472,
+  0.814,
+  0.4939,
+  0.8137,
+  0.1737,
+  0.2777,
+  0.5975,
+  0.1043,
+  0.0353,
+  0.3899,
+  0.4244,
+  0.2083,
+  1.4882,
+  0.3898
+ ]
+}

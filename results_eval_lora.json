@@ -1,0 +1,63 @@
+{
+ "name": "lora",
+ "model": "mlx-community/Qwen3-1.7B-bf16",
+ "adapter": "adapters/sft",
+ "runtime": "mlx",
+ "max_tokens": 300,
+ "temperature": 0,
+ "documents": 150,
+ "valid_json_pct": 99.33333333333333,
+ "parses_pct": 100.0,
+ "micro": {
+  "precision": 0.9691666666666666,
+  "recall": 0.9667497921862012,
+  "f1": 0.9679567207657094
+ },
+ "micro_f1_ci95": [
+  0.9594806349572724,
+  0.976919929629749
+ ],
+ "per_field": {
+  "claim_type": {
+   "precision": 0.96,
+   "recall": 0.96,
+   "f1": 0.96
+  },
+  "event_date": {
+   "precision": 0.9911504424778761,
+   "recall": 0.9911504424778761,
+   "f1": 0.9911504424778761
+  },
+  "city": {
+   "precision": 0.8666666666666667,
+   "recall": 0.8666666666666667,
+   "f1": 0.8666666666666667
+  },
+  "policy_number": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "damaged_items": {
+   "precision": 0.9624060150375939,
+   "recall": 0.9516728624535316,
+   "f1": 0.9570093457943926
+  },
+  "estimated_amount_eur": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "injured_persons": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "police_reported": {
+   "precision": 0.9866666666666667,
+   "recall": 0.9866666666666667,
+   "f1": 0.9866666666666668
+  }
+ },
+ "median_latency_s": 2.0294732709990058
+}
