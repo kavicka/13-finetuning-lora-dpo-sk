@@ -9,6 +9,13 @@
 - **DPO nepridalo nič merateľné** (0,964 vs 0,968, v rámci šumu). Model po SFT robil tak málo chýb, že 389 zo 400 „zlých odpovedí“ muselo byť syntetických.
 - Najslabšie pole je mesto. Na mestách z tréningu má 97 z 99 správne, na nových 22 z 36, takže časť zlepšenia je zapamätaná.
 
+## Najprv jednoducho
+Predstav si hlásenie: „V Žiline mi krúpy poškodili strechu, oprava stojí asi 1 950 €.“ Program má z neho vytiahnuť údaje do pevného formátu **JSON**, napríklad mesto, druh škody a sumu ako číslo. To uľahčuje ďalšiemu systému údaje uložiť alebo spracovať. Problém je, že všeobecný jazykový model niekedy vráti nesprávny formát alebo nesprávne pole.
+
+Projekt porovná štyri možnosti na rovnakej úlohe: pokyn bez príkladu, pokyn s tromi príkladmi, **LoRA** doladenie a ďalší krok **DPO**. Dáta sú syntetické: najprv sa vytvoria správne záznamy, potom sa z nich napíšu slovenské hlásenia. Pri LoRA ostáva väčšina modelu zmrazená a učí sa len malá časť váh. **F1** meria zhodu vyťažených polí so správnymi odpoveďami; vyššie je lepšie.
+
+Na 150 odložených hláseniach stúplo micro F1 z 0,812 bez príkladov na 0,968 po LoRA. DPO už neprinieslo merateľné zlepšenie. Grafy ukazujú, ako sa výsledok mení s počtom tréningových príkladov a pri ktorých poliach model stále chybuje. Výsledok opisuje tento syntetický dataset; pred reálnym použitím by bolo treba overenie na skutočných hláseniach.
+
 ## Problem
 Dokáže model taký malý, že beží na notebooku, spoľahlivo vytiahnuť štruktúrované údaje z neupraveného slovenského textu, a je na to doladenie správny nástroj? Tento krok odpovedá na otázku roadmapy tabuľkou: zero-shot vs few-shot vs LoRA vs LoRA + DPO, rovnaká testovacia sada, rovnaké metriky.
 

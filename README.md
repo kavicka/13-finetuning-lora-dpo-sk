@@ -9,6 +9,13 @@
 - **DPO added nothing measurable** (0.964 vs 0.968, inside the noise). The SFT model made so few mistakes that 389 of 400 "bad answers" had to be synthetic.
 - The weakest field is the city. On towns seen in training it gets 97 of 99 right, on new towns 22 of 36, so part of the gain is memorised.
 
+## Start here
+Imagine a report saying: “Hail damaged my roof in Žilina; repairs will cost about €1,950.” A program should extract fields into a fixed **JSON** format, such as city, claim type, and amount as a number. Another system can then store or process them. The challenge is that a general language model sometimes returns the wrong format or the wrong field.
+
+The project compares four approaches on the same task: an instruction without examples, an instruction with three examples, **LoRA** fine-tuning, and an additional **DPO** step. The data is synthetic: correct records are created first, then Slovak reports are written from them. With LoRA most model weights stay frozen and only a small part is trained. **F1** measures agreement between extracted fields and correct answers; higher is better.
+
+On 150 held-out reports, micro F1 rises from 0.812 without examples to 0.968 after LoRA. DPO brings no measurable further improvement. Plots show how the result changes with the number of training examples and which fields remain difficult. These results describe this synthetic dataset; real-world use would require evaluation on real reports.
+
 ## Problem
 Can a model small enough for a laptop reliably pull structured data out of messy Slovak text, and is fine-tuning the right tool for that? This step answers the roadmap's question with a table: zero-shot vs few-shot vs LoRA vs LoRA + DPO, same test set, same metrics.
 
